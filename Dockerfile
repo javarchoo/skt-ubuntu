@@ -7,19 +7,19 @@ ENV DEBIAN_FRONTEND noninteractive
 # COPY repos/sources.list /etc/apt/sources.list
 
 # setup pypy proxy
-RUN mkdir ~/.pip && \
-    echo '[global]' > ~/.pip/pip.conf && \
-    echo 'extra-index-url = http://pypi-repo.cicd.stg.taco/simple/' >> ~/.pip/pip.conf && \
-    echo 'trusted-host = pypi-repo.cicd.stg.taco' >> ~/.pip/pip.conf && \
-    apt-get update && \
-    apt-get install apt-transport-https ca-certificates curl software-properties-common -y && \
-    apt-get install net-tools vim netcat iputils-ping -y && \
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
-    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" && \
-    apt-get install python-pip python-dev build-essential -y && \
-    pip install --upgrade pip && \
-    pip install pycrypto && \
-    apt-get update
+# RUN mkdir ~/.pip && \
+#    echo '[global]' > ~/.pip/pip.conf && \
+#    echo 'extra-index-url = http://pypi-repo.cicd.stg.taco/simple/' >> ~/.pip/pip.conf && \
+#    echo 'trusted-host = pypi-repo.cicd.stg.taco' >> ~/.pip/pip.conf && \
+#    apt-get update && \
+#    apt-get install apt-transport-https ca-certificates curl software-properties-common -y && \
+#    apt-get install net-tools vim netcat iputils-ping -y && \
+#    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
+#    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" && \
+#    apt-get install python-pip python-dev build-essential -y && \
+#    pip install --upgrade pip && \
+#    pip install pycrypto && \
+#    apt-get update
 
 # setup label
 LABEL org.label-schema.build-date="@BUILD_TIMESTAMP" \
